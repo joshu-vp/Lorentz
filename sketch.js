@@ -48,7 +48,8 @@ function draw() {
 //  let camX = map(mouseX, 0, width, - 2 * width, 2 * width);
 //  let camY = map(mouseY, 0, height, - 2 * width, 2 * width);
 //  camera(camX, camY, (height / 2.0) / tan(PI * 30.0 / 180.0), 0, 0, 0, 0, 1, 0);
-    rotate(r + r_state);
+    r += r_state
+    rotate(r);
     scale(s);
   noFill();
   let hu = 0;
