@@ -26,9 +26,9 @@ function setup() {
 
   // document.body registers gestures anywhere on the page
   var hammer = new Hammer(document.body, options);
-  hammer.get('pinch').set({ enable: true });
+//  hammer.get('pinch').set({ enable: true });
   hammer.get('rotate').set({ enable: true });  
-  hammer.on("pinch", scaleRect);
+//  hammer.on("pinch", scaleRect);
   hammer.on("rotate", rotateRect);
 }
 
