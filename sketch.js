@@ -69,9 +69,11 @@ function rotateRect(event) {
     if (event.isFirst){
         ro = radians(event.rotation);
         rs = ro;
+    } else if(event.isFinal) {
+        r_state = 0
     } else {
         ro = radians(event.rotation);
-        r_state = ro - rs
+        r_state = rs - ro
         rs = ro
     }
 }
