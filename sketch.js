@@ -10,8 +10,18 @@ let points = new Array();
 
 
 function setup() {
-  createCanvas(windowWidth, windowHeight, WEBGL);
-  colorMode(HSB);
+    createCanvas(windowWidth, windowHeight, WEBGL);
+    colorMode(HSB);
+    var options = {
+    preventDefault: true
+  };
+
+  // document.body registers gestures anywhere on the page
+  var hammer = new Hammer(document.body, options);
+  hammer.get('pinch').set({ enable: true });
+  hammer.get('rotate').set({ enable: true });  
+  hammer.on("pinch", scaleRect);
+  hammer.on("rotate", rotateRect);
 }
 
 function draw() {
@@ -28,24 +38,17 @@ function draw() {
   points.push(new p5.Vector(x, y, z));
 
   translate(0, 0, -80);
-  let camX = map(mouseX, 0, width, - 2 * width, 2 * width);
-  let camY = map(mouseY, 0, height, - 2 * width, 2 * width);
-  camera(camX, camY, (height / 2.0) / tan(PI * 30.0 / 180.0), 0, 0, 0, 0, 1, 0);
-  //translate(width/2, height/2);
-  scale(5);
-  //stroke(255);
+//  let camX = map(mouseX, 0, width, - 2 * width, 2 * width);
+//  let camY = map(mouseY, 0, height, - 2 * width, 2 * width);
+//  camera(camX, camY, (height / 2.0) / tan(PI * 30.0 / 180.0), 0, 0, 0, 0, 1, 0);
+  scale(10);
   noFill();
-
   let hu = 0;
 strokeWeight(1)
   beginShape();    
   for (let v of points) {
     stroke(0, 255, 255);
     vertex(v.x, v.y, v.z);
-    //PVector offset = PVector.random3D();
-    //offset.mult(0.1);
-    //v.add(offset);
-
     hu += 0.1;
     if (hu > 255) {
       hu = 0;
@@ -53,9 +56,19 @@ strokeWeight(1)
   }
   endShape();
 }
-
-function touchMoved() {
-  //ellipse(mouseX, mouseY, 5, 5);
-  // prevent default
-  return false;
+function rotateRect(event) {
+  console.log(event);
+  r = radians(event.rotation);
 }
+
+
+function scaleRect(event) {
+  console.log(event);
+  s = event.scale;
+}
+
+//function touchMoved() {
+//  //ellipse(mouseX, mouseY, 5, 5);
+//  // prevent default
+//  return false;
+//}
