@@ -8,6 +8,9 @@ let c = 8.0 / 3.0;
 
 let points = new Array();
 
+var s = 10.0;
+var r = 0;
+
 
 function setup() {
     createCanvas(windowWidth, windowHeight, WEBGL);
@@ -41,13 +44,14 @@ function draw() {
 //  let camX = map(mouseX, 0, width, - 2 * width, 2 * width);
 //  let camY = map(mouseY, 0, height, - 2 * width, 2 * width);
 //  camera(camX, camY, (height / 2.0) / tan(PI * 30.0 / 180.0), 0, 0, 0, 0, 1, 0);
-  scale(10);
+    rotate(r);
+    scale(s);
   noFill();
   let hu = 0;
 strokeWeight(1)
   beginShape();    
   for (let v of points) {
-    stroke(0, 255, 255);
+    stroke(100, 255, 255);
     vertex(v.x, v.y, v.z);
     hu += 0.1;
     if (hu > 255) {
