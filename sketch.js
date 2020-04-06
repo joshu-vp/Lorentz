@@ -51,7 +51,7 @@ function draw() {
 strokeWeight(1)
   beginShape();    
   for (let v of points) {
-    stroke(100, 255, 255);
+    stroke(200, 255, 255);
     vertex(v.x, v.y, v.z);
     hu += 0.1;
     if (hu > 255) {
@@ -62,13 +62,13 @@ strokeWeight(1)
 }
 function rotateRect(event) {
   console.log(event);
-  r = radians(event.rotation);
+  r += radians(event.rotation);
 }
 
 
 function scaleRect(event) {
   console.log(event);
-  s = event.scale;
+  s += event.scale;
 }
 
 //function touchMoved() {
