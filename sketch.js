@@ -10,6 +10,9 @@ let points = new Array();
 
 var s = 10.0;
 var r = 0;
+var so = 0;
+var ro = 0;
+
 
 
 function setup() {
@@ -44,6 +47,8 @@ function draw() {
 //  let camX = map(mouseX, 0, width, - 2 * width, 2 * width);
 //  let camY = map(mouseY, 0, height, - 2 * width, 2 * width);
 //  camera(camX, camY, (height / 2.0) / tan(PI * 30.0 / 180.0), 0, 0, 0, 0, 1, 0);
+    r += ro
+    s += so
     rotate(r);
     scale(s);
   noFill();
@@ -62,13 +67,13 @@ strokeWeight(1)
 }
 function rotateRect(event) {
   console.log(event);
-  r += radians(event.rotation);
+  r = radians(event.rotation);
 }
 
 
 function scaleRect(event) {
   console.log(event);
-  s += event.scale;
+  s = event.scale;
 }
 
 //function touchMoved() {
