@@ -47,10 +47,8 @@ function draw() {
 //  let camX = map(mouseX, 0, width, - 2 * width, 2 * width);
 //  let camY = map(mouseY, 0, height, - 2 * width, 2 * width);
 //  camera(camX, camY, (height / 2.0) / tan(PI * 30.0 / 180.0), 0, 0, 0, 0, 1, 0);
-    r += ro
-    s += so
-    rotate(r);
-    scale(s);
+    rotate(r + ro);
+    scale(s + so);
   noFill();
   let hu = 0;
 strokeWeight(1)
@@ -67,13 +65,13 @@ strokeWeight(1)
 }
 function rotateRect(event) {
   console.log(event);
-  ro = radians(event.rotatemove);
+  ro = radians(event.rotation);
 }
 
 
 function scaleRect(event) {
   console.log(event);
-  so = event.pinchmove;
+  so = event.scale;
 }
 
 //function touchMoved() {
