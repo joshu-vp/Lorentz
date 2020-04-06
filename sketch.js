@@ -67,13 +67,13 @@ strokeWeight(1)
 }
 function rotateRect(event) {
   console.log(event);
-  ro = radians(event.rotation);
+  ro = radians(event.rotatemove);
 }
 
 
 function scaleRect(event) {
   console.log(event);
-  so = event.scale;
+  so = event.pinchmove;
 }
 
 //function touchMoved() {
