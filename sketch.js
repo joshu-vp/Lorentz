@@ -54,7 +54,7 @@ function draw() {
 strokeWeight(1)
   beginShape();    
   for (let v of points) {
-    stroke(200, 255, 255);
+    stroke(0, 255, 255);
     vertex(v.x, v.y, v.z);
     hu += 0.1;
     if (hu > 255) {
@@ -65,12 +65,18 @@ strokeWeight(1)
 }
 function rotateRect(event) {
   console.log(event);
+    if (event.isFirst){
+        ro = 0
+    }
   ro = radians(event.rotation);
 }
 
 
 function scaleRect(event) {
   console.log(event);
+    if (event.isFirst){
+        so = 0
+    }
   so = event.scale;
 }
 
