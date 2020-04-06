@@ -49,7 +49,7 @@ function draw() {
 //  let camX = map(mouseX, 0, width, - 2 * width, 2 * width);
 //  let camY = map(mouseY, 0, height, - 2 * width, 2 * width);
 //  camera(camX, camY, (height / 2.0) / tan(PI * 30.0 / 180.0), 0, 0, 0, 0, 1, 0);
-    rotate(r + ro);
+    rotate(r);
     scale(s);
   noFill();
   let hu = 0;
@@ -66,14 +66,7 @@ strokeWeight(1)
   endShape();
 }
 function rotateRect(event) {
-    if (event.isFirst){
-        r = - radians(event.rotation);
-        ro = radians(event.rotation);
-    } else if (event.isFinal) {
-        r = 0
-        ro = 0
-    }
-    ro = radians(event.rotation)
+        r = radians(event.rotation);
 }
 
 
