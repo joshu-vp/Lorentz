@@ -10,7 +10,7 @@ let points = new Array();
 
 
 function setup() {
-  createCanvas(800, 600, WEBGL);
+  createCanvas(windowWidth, windowHeight, WEBGL);
   colorMode(HSB);
 }
 
@@ -52,7 +52,10 @@ function draw() {
     }
   }
   endShape();
+}
 
-
-  //println(x,y,z);
+function touchMoved() {
+  //ellipse(mouseX, mouseY, 5, 5);
+  // prevent default
+  return false;
 }
