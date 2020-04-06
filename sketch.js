@@ -67,14 +67,14 @@ strokeWeight(1)
 }
 function rotateRect(event) {
   console.log(event);
-  ro = radians(event.angle) - ri;
+  ro = radians(event.rotation) - ri;
     ri = ro;
 }
 
 
 function scaleRect(event) {
   console.log(event);
-  so = event.distance - si;
+  so = event.scale - si;
     si = so
     
 }
