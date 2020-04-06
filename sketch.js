@@ -66,7 +66,7 @@ strokeWeight(1)
   endShape();
 }
 function rotateRect(event) {
-  ro = radians(event.angle);
+  ro = event.angle;
 }
 
 
