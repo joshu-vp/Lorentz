@@ -10,10 +10,9 @@ let points = new Array();
 
 var s = 10.0;
 var r = 0;
-var so = 0;
+var r_state = 0;
+var rs = 0;
 var ro = 0;
-var si = 0;
-var ri = 0;
 
 
 
@@ -49,7 +48,7 @@ function draw() {
 //  let camX = map(mouseX, 0, width, - 2 * width, 2 * width);
 //  let camY = map(mouseY, 0, height, - 2 * width, 2 * width);
 //  camera(camX, camY, (height / 2.0) / tan(PI * 30.0 / 180.0), 0, 0, 0, 0, 1, 0);
-    rotate(r);
+    rotate(r + r_state);
     scale(s);
   noFill();
   let hu = 0;
@@ -66,7 +65,14 @@ strokeWeight(1)
   endShape();
 }
 function rotateRect(event) {
-        r = radians(event.rotation);
+    if (event.isFirst){
+        ro = radians(event.rotation);
+        rs = ro;
+    } else {
+        ro = radians(event.rotation);
+        r_state = ro - rs
+        rs = ro
+    }
 }
 
 
