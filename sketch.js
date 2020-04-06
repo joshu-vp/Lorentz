@@ -56,7 +56,7 @@ function draw() {
 strokeWeight(1)
   beginShape();    
   for (let v of points) {
-    stroke(0, 255, 255);
+    stroke(100, 255, 255);
     vertex(v.x, v.y, v.z);
     hu += 0.1;
     if (hu > 255) {
@@ -66,7 +66,7 @@ strokeWeight(1)
   endShape();
 }
 function rotateRect(event) {
-  ro = radians(event.angle);
+  ro = radians(event.rotation);
 }
 
 
