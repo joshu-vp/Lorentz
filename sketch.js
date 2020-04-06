@@ -70,6 +70,9 @@ function rotateRect(event) {
     if (!event.isFinal){
   ro = radians(event.rotation) - ri;
     ri = ro;
+    } else if (event.isFirst){
+        ro = radians(event.rotation)
+        ri = ro
     } else {
         ro = 0;    
         ri = 0
@@ -82,6 +85,9 @@ function scaleRect(event) {
     if (!event.isFinal){
   so = event.scale - si;
     si = so;
+    } else if (event.isFirst){
+        so = event.scale
+        si = so
     } else {
         so = 0;    
         si = 0
